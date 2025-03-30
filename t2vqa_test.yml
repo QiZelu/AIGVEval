@@ -1,0 +1,44 @@
+name: T2VEval
+num_epochs: 15
+warmup_epochs: 2.5
+save_model: true
+batch_size: 8
+num_workers: 2
+split_seed: 42
+
+wandb:
+    project_name: T2VEval
+
+data:   
+    t2v:
+        type: T2VDataset
+        args:
+            phase: train # Change to "test" if you want to evaluate on test set
+            anno_file: /home/u202320081001008/share/IMC/T2VEval/dataset/test_data.txt
+            data_prefix: /home/u202320081001008/share/IMC/test
+            size: 224
+            clip_len: 8
+            frame_interval: 2
+
+
+model:
+    args:
+        med_config: /home/u202320081001008/share/IMC/T2VEval/configs/med_config.json
+        image_size: 224
+        nhead: 8
+        dropout: 0.1
+        nlayers: 6
+        embed_dim: 256
+        llm_model: /home/u202320081001008/share/IMC/T2VEval/checkpoint/vicuna-7b-v1.1
+        blip_weights: /home/u202320081001008/share/IMC/T2VEval/checkpoint/model_large.pth
+        swin_weights: /home/u202320081001008/share/IMC/T2VEval/checkpoint/swin_tiny_patch244_window877_kinetics400_1k.pth
+        bert_weights: /home/u202320081001008/share/IMC/T2VEval/checkpoint/bert-base-uncased
+        conv_weights: /media/imc3090x4/9ea39b40-da35-467c-b98d-803ea79ff646/AIGC_VQA/AIGC_VQA/Codes/T2VEA/checkpoint/convnext_3d_tiny_3.pth
+            
+optimizer:
+    lr: !!float 1e-5
+    wd: 0.05
+
+test_load_path: /home/u202320081001008/share/IMC/T2VEval/pretrained_weights_combine_8FPS_test/T2VQA_t2vea_head_t2v_0_eval_s_8_finetuned.pth
+
+# nohup python train.py > 1123_mptva_in_t2vdb_seed_42.txt 2>&1 &

@@ -1,0 +1,10 @@
+Dreamina+animal_12.mp4,3.242857142857143
+Dreamina+human_1.mp4,3.475
+Dreamina+human_5.mp4,2.142857142857143
+Dreamina+human_8.mp4,1.5375
+KLing+animal_4.mp4,2.457142857142857
+Open_sora+human_16.mp4,1.085714285714286
+Open_sora+human_7.mp4,1.314285714285714
+Show1+human_3.mp4,2.714285714285714
+Open_sora+animal_9.mp4,1.6375
+Pika+animal_5.mp4,2.171428571428571
