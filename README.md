@@ -1,4 +1,4 @@
-# T2VEval Method
+# AIGVEval Method
 
 ## 权重文件下载
 
